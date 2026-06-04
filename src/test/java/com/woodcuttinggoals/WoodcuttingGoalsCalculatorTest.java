@@ -57,4 +57,16 @@ public class WoodcuttingGoalsCalculatorTest
 		// 13,034,431 XP == level 99; no further real level.
 		assertEquals(0, WoodcuttingGoalsCalculator.xpToNextLevel(13_034_431));
 	}
+
+	@Test
+	public void xpToNextLevelAboveMaxIsZero()
+	{
+		assertEquals(0, WoodcuttingGoalsCalculator.xpToNextLevel(200_000_000));
+	}
+
+	@Test
+	public void treesUntilZeroXpPerTreeIsZero()
+	{
+		assertEquals(0, WoodcuttingGoalsCalculator.treesUntil(100, 0.0));
+	}
 }
