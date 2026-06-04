@@ -16,7 +16,7 @@ import lombok.Getter;
  * recovered from the integer in-game XP counter.
  */
 @Getter
-enum Tree
+public enum Tree
 {
 	TREE("", "Tree", 25.0),
 	OAK("oak", "Oak", 37.5),
@@ -67,6 +67,7 @@ enum Tree
 	@Nullable
 	static Tree fromChatMessage(String message)
 	{
+		if (message == null) return null;
 		Matcher matcher = CUT_PATTERN.matcher(message);
 		if (!matcher.matches())
 		{

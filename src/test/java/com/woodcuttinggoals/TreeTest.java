@@ -51,9 +51,21 @@ public class TreeTest
 	@Test
 	public void xpValuesAreCanonical()
 	{
-		assertEquals(25.0, Tree.TREE.getXp(), 0.0001);
-		assertEquals(37.5, Tree.OAK.getXp(), 0.0001);
-		assertEquals(67.5, Tree.WILLOW.getXp(), 0.0001);
-		assertEquals(380.0, Tree.REDWOOD.getXp(), 0.0001);
+		assertEquals(25.0,  Tree.TREE.getXp(),        0.0001);
+		assertEquals(37.5,  Tree.OAK.getXp(),         0.0001);
+		assertEquals(67.5,  Tree.WILLOW.getXp(),      0.0001);
+		assertEquals(85.0,  Tree.TEAK.getXp(),        0.0001);
+		assertEquals(100.0, Tree.MAPLE.getXp(),       0.0001);
+		assertEquals(125.0, Tree.MAHOGANY.getXp(),    0.0001);
+		assertEquals(40.0,  Tree.ARCTIC_PINE.getXp(), 0.0001);
+		assertEquals(175.0, Tree.YEW.getXp(),         0.0001);
+		assertEquals(250.0, Tree.MAGIC.getXp(),       0.0001);
+		assertEquals(380.0, Tree.REDWOOD.getXp(),     0.0001);
+	}
+
+	@Test
+	public void nullMessageReturnsNull()
+	{
+		assertNull(Tree.fromChatMessage(null));
 	}
 }
