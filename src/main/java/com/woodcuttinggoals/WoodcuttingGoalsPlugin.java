@@ -138,8 +138,15 @@ public class WoodcuttingGoalsPlugin extends Plugin
 		xpToNextLevel = WoodcuttingGoalsCalculator.xpToNextLevel(currentXp);
 		treesToNextLevel = WoodcuttingGoalsCalculator.treesUntil(xpToNextLevel, xpPerTree);
 
-		final int goalXp = xpTrackerService.getEndGoalXp(Skill.WOODCUTTING);
-		final int goalRemaining = goalXp - currentXp;
-		treesToGoal = WoodcuttingGoalsCalculator.treesUntil(goalRemaining, xpPerTree);
+		if (config.showTreesToGoal())
+		{
+			final int goalXp = xpTrackerService.getEndGoalXp(Skill.WOODCUTTING);
+			final int goalRemaining = goalXp - currentXp;
+			treesToGoal = WoodcuttingGoalsCalculator.treesUntil(goalRemaining, xpPerTree);
+		}
+		else
+		{
+			treesToGoal = 0;
+		}
 	}
 }
